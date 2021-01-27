@@ -1,6 +1,6 @@
 <template>
-  <div class="notification-bar" :class="notificationTypeClass">
-    <p>{{ notification.message }}</p>
+  <div class="notification-bar" :class="eventTypeClass">
+    <p>{{ event.message }}</p>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ import { mapActions } from "vuex";
 
 export default {
   props: {
-    notification: {
+    event: {
       type: Object,
       required: true
     }
@@ -20,17 +20,17 @@ export default {
     };
   },
   mounted() {
-    this.timeout = setTimeout(() => this.remove(this.notification), 5000);
+    this.timeout = setTimeout(() => this.remove(this.event), 5000);
   },
   beforeDestroy() {
     clearTimeout(this.timeout);
   },
   computed: {
-    notificationTypeClass() {
-      return `-text-${this.notification.type}`;
+    eventTypeClass() {
+      return `-text-${this.event.type}`;
     }
   },
-  methods: mapActions("notification", ["remove"])
+  methods: mapActions("event", ["remove"])
 };
 </script>
 

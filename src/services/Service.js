@@ -10,13 +10,13 @@ const apiClient = axios.create({
 });
 
 export default {
-  getEvents(perPage, page) {
-    return apiClient.get("/events?_limit=" + perPage + "&_page=" + page);
+  getShindigs(perPage, page) {
+    return apiClient.get("/shindigs?_limit=" + perPage + "&_page=" + page);
   },
-  getEvent(id) {
-    return apiClient.get("/events/" + id);
+  getShindig(id) {
+    return apiClient.get("/shindigs/" + id);
   },
   postEvent(event) {
-    return apiClient.post("/events", event);
+    return apiClient.post("/shindigs", event);
   }
 };

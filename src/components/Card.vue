@@ -1,12 +1,12 @@
 <template>
   <router-link
     class="event-link"
-    :to="{ name: 'event-show', params: { id: event.id } }"
+    :to="{ name: 'show', params: { id: shindig.id } }"
   >
     <div class="event-card -shadow">
-      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-      <h4 class="title">{{ event.title }}</h4>
-      <BaseIcon name="users">{{ event.attendees.length }} attending</BaseIcon>
+      <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
+      <h4 class="title">{{ shindig.title }}</h4>
+      <BaseIcon name="users">{{ shindig.attendees.length }} attending</BaseIcon>
       <span></span>
     </div>
   </router-link>
@@ -15,7 +15,7 @@
 <script>
 export default {
   props: {
-    event: Object
+    shindig: Object
   }
 };
 </script>

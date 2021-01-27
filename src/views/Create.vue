@@ -1,46 +1,42 @@
 <template>
   <div>
-    <h1>Event Create</h1>
+    <h1>Create</h1>
 
-    <form @submit.prevent="createEvent">
+    <form @submit.prevent="createShindig">
       <label>Select a category</label>
-      <select v-model="event.category">
+      <select v-model="shindig.category">
         <option v-for="cat in categories" :key="cat">{{ cat }}</option>
       </select>
-      <h3>Name & describe your event</h3>
+      <h3>Name & describe your shindig</h3>
       <div class="field">
         <label>Title</label>
-        <input
-          v-model="event.title"
-          type="text"
-          placeholder="Add an event title"
-        />
+        <input v-model="shindig.title" type="text" placeholder="Add a title" />
       </div>
       <div class="field">
         <label>Description</label>
         <input
-          v-model="event.description"
+          v-model="shindig.description"
           type="text"
           placeholder="Add a description"
         />
       </div>
-      <h3>Where is your event?</h3>
+      <h3>Where is your shindig?</h3>
       <div class="field">
         <label>Location</label>
         <input
-          v-model="event.location"
+          v-model="shindig.location"
           type="text"
           placeholder="Add a location"
         />
       </div>
-      <h3>When is your event?</h3>
+      <h3>When is your shindig?</h3>
       <div class="field">
         <label>Date</label>
-        <datepicker v-model="event.date" placeholder="Select a date" />
+        <datepicker v-model="shindig.date" placeholder="Select a date" />
       </div>
       <div class="field">
         <label>Select a time</label>
-        <select v-model="event.time">
+        <select v-model="shindig.time">
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
@@ -50,7 +46,6 @@
 </template>
 
 <script>
-//import { mapState, mapGetters } from "vuex";
 import Datepicker from "vuejs-datepicker";
 
 export default {
@@ -65,34 +60,25 @@ export default {
     return {
       times,
       categories: this.$store.state.categories,
-      event: this.createFreshEventObject()
+      shindig: this.createFreshShindigObject()
     };
   },
-  /*
-  computed: {
-    catLength() {
-      return this.$store.getters.catLength;
-    },
-    ...mapGetters(["getEventById"]),
-    ...mapState(["user", "categories"])
-  },
-  */
   methods: {
-    createEvent() {
+    createShindig() {
       this.$store
-        .dispatch("event/createEvent", this.event)
+        .dispatch("shindig/createShindig", this.shindig)
         .then(() => {
           this.$router.push({
-            name: "event-show",
-            params: { id: this.event.id }
+            name: "show",
+            params: { id: this.shindig.id }
           });
-          this.event = this.createFreshEventObject();
+          this.shindig = this.createFreshShindigObject();
         })
         .catch(() => {
-          console.log("There was a problem creating your event.");
+          console.log("There was a problem creating your shindig.");
         });
     },
-    createFreshEventObject() {
+    createFreshShindigObject() {
       const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
 

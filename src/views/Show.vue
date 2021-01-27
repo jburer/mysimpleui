@@ -1,28 +1,30 @@
 <template>
   <div>
     <div class="event-header">
-      <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
-      <h1 class="title">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer ? event.organizer.name : "" }}</h5>
-      <h5>Category: {{ event.category }}</h5>
+      <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
+      <h1 class="title">{{ shindig.title }}</h1>
+      <h5>
+        Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
+      </h5>
+      <h5>Category: {{ shindig.category }}</h5>
     </div>
     <BaseIcon name="map"><h2>Location</h2></BaseIcon>
-    <address>{{ event.location }}</address>
-    <h2>Event details</h2>
-    <p>{{ event.description }}</p>
+    <address>{{ shindig.location }}</address>
+    <h2>Details</h2>
+    <p>{{ shindig.description }}</p>
     <h2>
       Attendees
       <span class="badge -fill-gradient">{{
-        event.attendess ? event.attendees.length : 0
+        shindig.attendess ? shindig.attendees.length : 0
       }}</span>
     </h2>
     <ul class="list-group">
       <li
-        v-for="(attendee, index) in event.attendees"
+        v-for="(attendee, index) in shindig.attendees"
         :key="index"
         class="list-item"
       >
-        <b>{{ attendee.name }}</b>
+        <b>{{ shindig.name }}</b>
       </li>
     </ul>
   </div>
@@ -34,12 +36,12 @@ import { mapState, mapActions } from "vuex";
 export default {
   props: ["id"],
   created() {
-    this.fetchEvent(this.id);
+    this.fetchShindig(this.id);
   },
   computed: mapState({
-    event: state => state.event.event
+    shindig: state => state.shindig.shindig
   }),
-  methods: mapActions("event", ["fetchEvent"])
+  methods: mapActions("shindig", ["fetchShindig"])
 };
 </script>
 

@@ -1,10 +1,6 @@
 <template>
   <div class="notification-container">
-    <NotificationBar
-      v-for="notification in notifications"
-      :key="notification.id"
-      :notification="notification"
-    />
+    <NotificationBar v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
@@ -16,7 +12,7 @@ export default {
   components: {
     NotificationBar
   },
-  computed: mapState("notification", ["notifications"])
+  computed: mapState("event", ["events"])
 };
 </script>
 

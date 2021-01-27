@@ -1,11 +1,13 @@
 <template>
   <div>
-    <h1>Events for {{ user.user.name }}</h1>
-    <EventCard v-for="event in event.events" :key="event.id" :event="event" />
+    <h1>Around Town</h1>
+    <Card
+      v-for="shindig in shindig.shindigs"
+      :key="shindig.id"
+      :shindig="shindig"
+    />
     <template v-if="page != 1">
-      <router-link
-        :to="{ name: 'event-list', query: { page: page - 1 } }"
-        rel="prev"
+      <router-link :to="{ name: 'read', query: { page: page - 1 } }" rel="prev"
         >Prev Page</router-link
       >
     </template>
@@ -13,10 +15,7 @@
       |
     </template>
     <template v-if="hasNextPage">
-      <router-link
-        :to="{ name: 'event-list', query: { page: page + 1 } }"
-        rel="prev"
-      >
+      <router-link :to="{ name: 'read', query: { page: page + 1 } }" rel="prev">
         Next Page
       </router-link>
     </template>
@@ -25,16 +24,16 @@
 </template>
 
 <script>
-import EventCard from "@/components/EventCard.vue";
+import Card from "@/components/Card.vue";
 import { mapState } from "vuex";
 
 export default {
   components: {
-    EventCard
+    Card
   },
   created() {
     this.perPage = 3;
-    this.$store.dispatch("event/fetchEvents", {
+    this.$store.dispatch("shindig/fetchShindigs", {
       perPage: this.perPage,
       page: this.page
     });
@@ -44,9 +43,9 @@ export default {
       return parseInt(this.$route.query.page) || 1;
     },
     hasNextPage() {
-      return this.event.eventsTotal > this.page * this.perPage;
+      return this.shindig.shindigsTotal > this.page * this.perPage;
     },
-    ...mapState(["event", "user"])
+    ...mapState(["shindig", "user"])
   }
 };
 </script>
