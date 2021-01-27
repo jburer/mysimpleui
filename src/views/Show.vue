@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="event-header">
+    <div class="shindig-header">
       <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
       <h1 class="title">{{ shindig.title }}</h1>
       <h5>
@@ -52,7 +52,7 @@ export default {
 .location > .icon {
   margin-left: 10px;
 }
-.event-header > .title {
+.shindig-header > .title {
   margin: 0;
 }
 .list-group {
