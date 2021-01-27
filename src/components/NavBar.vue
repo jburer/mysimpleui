@@ -1,10 +1,12 @@
 <template>
   <div id="nav" class="nav">
-    <router-link to="/" class="brand">Real World Events</router-link>
+    <router-link to="/" class="brand">Sample App</router-link>
 
     <nav>
-      <router-link :to="{ name: 'event-list' }">Event List</router-link> |
-      <router-link :to="{ name: 'event-create' }">Create An Event</router-link>
+      <router-link :to="{ name: 'event-create' }">Create</router-link> |
+      <router-link :to="{ name: 'event-read' }">Read</router-link> |
+      <router-link :to="{ name: 'event-read' }">Update</router-link> |
+      <router-link :to="{ name: 'event-read' }">Delete</router-link>
     </nav>
   </div>
 </template>

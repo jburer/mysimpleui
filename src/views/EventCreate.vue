@@ -1,9 +1,6 @@
 <template>
   <div>
     <h1>Event Create</h1>
-    <!--<p>This event was created by {{ user.id }}</p>
-    <p>There are {{ catLength }} categories.</p>
-    <p>{{ getEventById(2) }}</p>-->
 
     <form @submit.prevent="createEvent">
       <label>Select a category</label>
@@ -83,7 +80,7 @@ export default {
   methods: {
     createEvent() {
       this.$store
-        .dispatch("createEvent", this.event)
+        .dispatch("event/createEvent", this.event)
         .then(() => {
           this.$router.push({
             name: "event-show",
@@ -96,7 +93,7 @@ export default {
         });
     },
     createFreshEventObject() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
 
       return {
