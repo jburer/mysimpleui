@@ -1,9 +1,9 @@
 <template>
   <router-link
-    class="event-link"
+    class="shindig-link"
     :to="{ name: 'show', params: { id: shindig.id } }"
   >
-    <div class="event-card -shadow">
+    <div class="shindig-card -shadow">
       <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
       <h4 class="title">{{ shindig.title }}</h4>
       <BaseIcon name="users">{{ shindig.attendees.length }} attending</BaseIcon>
@@ -21,21 +21,21 @@ export default {
 </script>
 
 <style scoped>
-.event-card {
+.shindig-card {
   padding: 20px;
   margin-bottom: 24px;
   transition: all 0.2s linear;
   cursor: pointer;
 }
-.event-card:hover {
+.shindig-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
-.event-card > .title {
+.shindig-card > .title {
   margin: 0;
 }
 
-.event-link {
+.shindig-link {
   color: black;
   text-decoration: none;
   font-weight: 100;
