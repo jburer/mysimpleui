@@ -1,5 +1,5 @@
 <template>
-  <div class="notification-bar" :class="eventTypeClass">
+  <div class="event-bar" :class="eventTypeClass">
     <p>{{ event.message }}</p>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.notification-bar {
+.event-bar {
   margin: 1em 0 1em;
 }
 </style>
