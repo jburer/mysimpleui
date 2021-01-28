@@ -36,6 +36,9 @@ body {
   padding: 0 20px 20px;
   margin: 0 auto;
 }
+::-webkit-scrollbar {
+  width: 0px;
+}
 hr {
   box-sizing: content-box;
   height: 0;
