@@ -1,23 +1,23 @@
 <template>
-  <div class="notification-container">
-    <NotificationBar v-for="event in events" :key="event.id" :event="event" />
+  <div class="event-container">
+    <EventBar v-for="event in events" :key="event.id" :event="event" />
   </div>
 </template>
 
 <script>
-import NotificationBar from "@/components/NotificationBar.vue";
+import EventBar from "@/components/EventBar.vue";
 import { mapState } from "vuex";
 
 export default {
   components: {
-    NotificationBar
+    EventBar
   },
   computed: mapState("event", ["events"])
 };
 </script>
 
 <style scoped>
-.notification-container {
+.event-container {
   position: fixed;
   bottom: 0;
   right: 0;

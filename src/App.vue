@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <NavBar />
-    <NotificationContainer />
+    <EventContainer />
     <router-view :key="$route.fullPath" />
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import NotificationContainer from "@/components/NotificationContainer.vue";
+import EventContainer from "@/components/EventContainer.vue";
 
 export default {
   components: {
     NavBar,
-    NotificationContainer
+    EventContainer
   }
 };
 </script>
