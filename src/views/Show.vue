@@ -1,19 +1,9 @@
 <template>
   <div>
-<<<<<<< HEAD
     <h1 class="title">{{ shindig.title }}</h1>
     <div class="shindig-header">
       <h3><BaseIcon name="clock" /> Time & Date</h3>
       <p>@{{ shindig.time }} on {{ shindig.date }}</p>
-=======
-    <div class="shindig-header">
-      <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
-      <h1 class="title">{{ shindig.title }}</h1>
-      <h5>
-        Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
-      </h5>
-      <h5>Category: {{ shindig.category }}</h5>
->>>>>>> bdd22e795f23be84017b90b44b76efc6aa59be19
     </div>
     <h3><BaseIcon name="map" /> Location</h3>
     <address>{{ shindig.location }}</address>
