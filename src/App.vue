@@ -107,7 +107,7 @@ small {
   color: rgba(0, 0, 0, 0.5);
 }
 .-text-lightgray {
-  color: rgba(70, 69, 69, 0.5);
+  color: rgba(69, 69, 69, 0.5);
 }
 .-shadow {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
@@ -220,8 +220,8 @@ textarea {
   display: none;
 }
 select {
-  width: 95%;
-  height: 42px;
+  width: 100%;
+  height: 52px;
   padding: 0 24px 0 10px;
   vertical-align: middle;
   background: #fff
