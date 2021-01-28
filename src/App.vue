@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <NavBar />
-    <EventContainer />
     <router-view :key="$route.fullPath" />
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import EventContainer from "@/components/EventContainer.vue";
 
 export default {
   components: {
-    NavBar,
-    EventContainer
+    NavBar
   }
 };
 </script>
@@ -31,6 +28,15 @@ body {
   line-height: 1.5;
 }
 #app {
+  box-sizing: border-box;
+  width: 500px;
+  padding: 0 20px 20px;
+  margin: 0 auto;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+.content {
   box-sizing: border-box;
   width: 500px;
   padding: 0 20px 20px;
@@ -105,6 +111,9 @@ small {
 }
 .-text-gray {
   color: rgba(0, 0, 0, 0.5);
+}
+.-text-lightgray {
+  color: rgba(70, 69, 69, 0.5);
 }
 .-shadow {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
@@ -198,8 +207,8 @@ textarea {
 [type="number"],
 [type="search"],
 [type="password"] {
-  height: 52px;
-  width: 100%;
+  height: 42px;
+  width: 95%;
   padding: 0 10px;
   font-size: 20px;
 }
@@ -217,8 +226,8 @@ textarea {
   display: none;
 }
 select {
-  width: 100%;
-  height: 52px;
+  width: 95%;
+  height: 42px;
   padding: 0 24px 0 10px;
   vertical-align: middle;
   background: #fff
