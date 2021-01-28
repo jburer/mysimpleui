@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Create</h1>
-
     <form @submit.prevent="createShindig">
       <label>Select a category</label>
       <select v-model="shindig.category">
@@ -34,13 +33,16 @@
         <label>Date</label>
         <datepicker v-model="shindig.date" placeholder="Select a date" />
       </div>
+      <!---->
       <div class="field">
         <label>Select a time</label>
         <select v-model="shindig.time">
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
+
       <input type="submit" class="button -fill-gradient" value="Submit" />
+      <!---->
     </form>
   </div>
 </template>
@@ -79,7 +81,7 @@ export default {
         });
     },
     createFreshShindigObject() {
-      const user = this.$store.state.user.user;
+      const user = "Anonymous";
       const id = Math.floor(Math.random() * 10000000);
 
       return {
