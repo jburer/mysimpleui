@@ -1,23 +1,20 @@
 <template>
   <div>
-    <div class="event-header">
-      <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
-      <h1 class="title">{{ shindig.title }}</h1>
-      <h5>
-        Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
-      </h5>
-      <h5>Category: {{ shindig.category }}</h5>
+    <h1 class="title">{{ shindig.title }}</h1>
+    <div class="shindig-header">
+      <h3><BaseIcon name="clock" /> Time & Date</h3>
+      <p>@{{ shindig.time }} on {{ shindig.date }}</p>
     </div>
-    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
+    <h3><BaseIcon name="map" /> Location</h3>
     <address>{{ shindig.location }}</address>
-    <h2>Details</h2>
+    <h3><BaseIcon name="list" /> Details</h3>
     <p>{{ shindig.description }}</p>
-    <h2>
-      Attendees
+    <h3>
       <span class="badge -fill-gradient">{{
         shindig.attendess ? shindig.attendees.length : 0
       }}</span>
-    </h2>
+      Attendees
+    </h3>
     <ul class="list-group">
       <li
         v-for="(attendee, index) in shindig.attendees"
@@ -27,6 +24,11 @@
         <b>{{ shindig.name }}</b>
       </li>
     </ul>
+    <h5 class="-text-lightgray">
+      Category: {{ shindig.category }}
+      <br />
+      Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
+    </h5>
   </div>
 </template>
 
@@ -52,7 +54,7 @@ export default {
 .location > .icon {
   margin-left: 10px;
 }
-.event-header > .title {
+.shindig-header > .title {
   margin: 0;
 }
 .list-group {
