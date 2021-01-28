@@ -201,8 +201,8 @@ textarea {
 [type="number"],
 [type="search"],
 [type="password"] {
-  height: 42px;
-  width: 95%;
+  height: 52px;
+  width: 100%;
   padding: 0 10px;
   font-size: 20px;
 }
