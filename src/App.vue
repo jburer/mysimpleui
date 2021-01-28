@@ -109,6 +109,9 @@ small {
 .-text-gray {
   color: rgba(0, 0, 0, 0.5);
 }
+.-text-lightgray {
+  color: rgba(69, 69, 69, 0.5);
+}
 .-shadow {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
 }
