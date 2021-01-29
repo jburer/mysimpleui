@@ -20,12 +20,17 @@ export const mutations = {
   },
   SET_SHINDIG(state, shindig) {
     state.shindig = shindig;
+  },
+  DELETE_SHINDIG(state, shindigToDelete) {
+    state.shindigs = state.shindigs.filter(
+      shindig => shindig.id !== shindigToDelete.id
+    );
   }
 };
 
 export const actions = {
   createShindig({ commit }, shindig) {
-    return Service.postEvent(shindig)
+    return Service.postShindig(shindig)
       .then(() => {
         commit("ADD_SHINDIG", shindig);
       })
@@ -62,6 +67,24 @@ export const actions = {
           console.log("There was an error:" + error.response);
         });
     }
+  },
+  updateShindig({ commit, getters }, id) {
+    var shindig = getters.getShindigById(id);
+    commit("SET_SHINDIG", shindig);
+    console.log("Shindig " + shindig.title + "updated.");
+  },
+  deleteShindig({ commit }, shindigToDelete) {
+    console.log("shindigToDelete = " + shindigToDelete);
+    return Service.deleteShindig(shindigToDelete)
+      .then(() => {
+        commit("DELETE_SHINDIG", shindigToDelete);
+        console.log("Shindig " + shindigToDelete + " deleted.");
+      })
+      .catch(error => {
+        console.log(
+          "There was a problem deleting your shindig: " + error.message
+        );
+      });
   }
 };
 

@@ -5,8 +5,7 @@
     <nav>
       <router-link :to="{ name: 'create' }">Create</router-link> |
       <router-link :to="{ name: 'read' }">Read</router-link> |
-      <router-link :to="{ name: 'update' }">Update</router-link> |
-      <router-link :to="{ name: 'delete' }">Delete</router-link>
+      <router-link :to="{ name: 'update' }">Update</router-link>
     </nav>
   </div>
 </template>

@@ -16,7 +16,11 @@ export default {
   getShindig(id) {
     return apiClient.get("/shindigs/" + id);
   },
-  postEvent(event) {
-    return apiClient.post("/shindigs", event);
+  postShindig(shindig) {
+    return apiClient.post("/shindigs", shindig);
+  },
+  deleteShindig(id) {
+    console.log("id = " + id);
+    return apiClient.delete("/shindigs/" + id);
   }
 };
