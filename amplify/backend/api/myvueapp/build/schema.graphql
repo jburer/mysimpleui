@@ -1,0 +1,188 @@
+type shindig {
+  id: ID!
+  user: String
+  category: String
+  organizer: String
+  title: String
+  description: String
+  location: String
+  date: AWSDate
+  time: AWSTime
+  attendees: AWSJSON
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelshindigConnection {
+  items: [shindig]
+  nextToken: String
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+input ModelshindigFilterInput {
+  id: ModelIDInput
+  user: ModelStringInput
+  category: ModelStringInput
+  organizer: ModelStringInput
+  title: ModelStringInput
+  description: ModelStringInput
+  location: ModelStringInput
+  date: ModelStringInput
+  time: ModelStringInput
+  attendees: ModelStringInput
+  and: [ModelshindigFilterInput]
+  or: [ModelshindigFilterInput]
+  not: ModelshindigFilterInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+type Query {
+  getShindig(id: ID!): shindig
+  listShindigs(filter: ModelshindigFilterInput, limit: Int, nextToken: String): ModelshindigConnection
+}
+
+input CreateShindigInput {
+  id: ID
+  user: String
+  category: String
+  organizer: String
+  title: String
+  description: String
+  location: String
+  date: AWSDate
+  time: AWSTime
+  attendees: AWSJSON
+}
+
+input UpdateShindigInput {
+  id: ID!
+  user: String
+  category: String
+  organizer: String
+  title: String
+  description: String
+  location: String
+  date: AWSDate
+  time: AWSTime
+  attendees: AWSJSON
+}
+
+input DeleteShindigInput {
+  id: ID
+}
+
+type Mutation {
+  createShindig(input: CreateShindigInput!, condition: ModelshindigConditionInput): shindig
+  updateShindig(input: UpdateShindigInput!, condition: ModelshindigConditionInput): shindig
+  deleteShindig(input: DeleteShindigInput!, condition: ModelshindigConditionInput): shindig
+}
+
+input ModelshindigConditionInput {
+  user: ModelStringInput
+  category: ModelStringInput
+  organizer: ModelStringInput
+  title: ModelStringInput
+  description: ModelStringInput
+  location: ModelStringInput
+  date: ModelStringInput
+  time: ModelStringInput
+  attendees: ModelStringInput
+  and: [ModelshindigConditionInput]
+  or: [ModelshindigConditionInput]
+  not: ModelshindigConditionInput
+}
+
+type Subscription {
+  onCreateShindig: shindig @aws_subscribe(mutations: ["createShindig"])
+  onUpdateShindig: shindig @aws_subscribe(mutations: ["updateShindig"])
+  onDeleteShindig: shindig @aws_subscribe(mutations: ["deleteShindig"])
+}

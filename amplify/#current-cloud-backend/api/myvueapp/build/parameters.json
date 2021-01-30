@@ -1,0 +1,8 @@
+{
+    "CreateAPIKey": 1,
+    "AppSyncApiName": "myvueapp",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-myvueapp-dev-160417-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/0d362d31429876264c441de72f7a6db1aec036e9"
+}
