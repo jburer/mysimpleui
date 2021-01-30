@@ -19,6 +19,10 @@ export default {
   postShindig(shindig) {
     return apiClient.post("/shindigs", shindig);
   },
+  patchShindig(shindig) {
+    console.log("Service.postUpdateShindig.shindig.id = " + shindig.id);
+    return apiClient.put("/shindigs/" + shindig.id, shindig);
+  },
   deleteShindig(id) {
     console.log("id = " + id);
     return apiClient.delete("/shindigs/" + id);
