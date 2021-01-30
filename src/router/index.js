@@ -27,7 +27,8 @@ const routes = [
   {
     path: "/shindig/update",
     name: "update",
-    component: Update
+    component: Update,
+    props: true
   },
   {
     path: "/shindig/:id",

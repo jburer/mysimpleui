@@ -3,9 +3,9 @@
     <router-link to="/" class="brand">Sample App</router-link>
 
     <nav>
-      <router-link :to="{ name: 'create' }">Create</router-link> |
-      <router-link :to="{ name: 'read' }">Read</router-link> |
-      <router-link :to="{ name: 'update' }">Update</router-link>
+      <router-link :to="{ name: 'create' }">Create</router-link>
+      |
+      <router-link :to="{ name: 'read' }">Read</router-link>
     </nav>
   </div>
 </template>

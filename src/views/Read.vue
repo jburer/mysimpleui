@@ -33,7 +33,7 @@ export default {
   },
   created() {
     this.perPage = 3;
-    this.$store.dispatch("shindig/fetchShindigs", {
+    this.$store.dispatch("shindig/getShindigs", {
       perPage: this.perPage,
       page: this.page
     });

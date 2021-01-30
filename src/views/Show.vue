@@ -29,9 +29,20 @@
       <br />
       Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
     </h5>
-    <form @submit.prevent="deleteShindig">
-      <input type="submit" class="button -fill-gradient" value="Delete" />
-    </form>
+    <table align="right">
+      <tr>
+        <td>
+          <form @submit.prevent="updateShindig">
+            <input type="submit" class="button -fill-gradient" value="Update" />
+          </form>
+        </td>
+        <td>
+          <form @submit.prevent="deleteShindig">
+            <input type="submit" class="button -fill-gradient" value="Delete" />
+          </form>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -41,7 +52,8 @@ import { mapState, mapActions } from "vuex";
 export default {
   props: ["id"],
   created() {
-    this.fetchShindig(this.id);
+    this.getShindig(this.id);
+    console.log("this.getShindig(this.id) = " + this.getShindig(this.id));
   },
   computed: mapState({
     shindig: state => state.shindig.shindig
@@ -60,7 +72,14 @@ export default {
           console.log("There was a problem deleting your shindig.");
         });
     },
-    ...mapActions("shindig", ["fetchShindig"])
+    updateShindig() {
+      console.log("this.shindig.id = " + this.shindig.id);
+      this.$router.push({
+        name: "update",
+        params: { id: this.shindig.id }
+      });
+    },
+    ...mapActions("shindig", ["getShindig"])
   }
 };
 </script>

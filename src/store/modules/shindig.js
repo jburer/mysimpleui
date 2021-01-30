@@ -33,6 +33,7 @@ export const actions = {
     return Service.postShindig(shindig)
       .then(() => {
         commit("ADD_SHINDIG", shindig);
+        console.log("Shindig: " + shindig + " created.");
       })
       .catch(error => {
         console.log(
@@ -40,7 +41,7 @@ export const actions = {
         );
       });
   },
-  fetchShindigs({ commit }, { perPage, page }) {
+  getShindigs({ commit }, { perPage, page }) {
     Service.getShindigs(perPage, page)
       .then(response => {
         commit("SET_SHINDIGS", response.data);
@@ -53,7 +54,7 @@ export const actions = {
         console.log("There was an error:" + error.response);
       });
   },
-  fetchShindig({ commit, getters }, id) {
+  getShindig({ commit, getters }, id) {
     var shindig = getters.getShindigById(id);
 
     if (shindig) {
@@ -68,10 +69,17 @@ export const actions = {
         });
     }
   },
-  updateShindig({ commit, getters }, id) {
-    var shindig = getters.getShindigById(id);
-    commit("SET_SHINDIG", shindig);
-    console.log("Shindig " + shindig.title + "updated.");
+  updateShindig({ commit }, shindig) {
+    return Service.patchShindig(shindig)
+      .then(() => {
+        commit("SET_SHINDIG", shindig);
+        console.log("Shindig: " + shindig + " updated.");
+      })
+      .catch(error => {
+        console.log(
+          "There was a problem updating your shindig: " + error.message
+        );
+      });
   },
   deleteShindig({ commit }, shindigToDelete) {
     console.log("shindigToDelete = " + shindigToDelete);
