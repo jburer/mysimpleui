@@ -16,7 +16,15 @@ export default {
   getShindig(id) {
     return apiClient.get("/shindigs/" + id);
   },
-  postEvent(event) {
-    return apiClient.post("/shindigs", event);
+  postShindig(shindig) {
+    return apiClient.post("/shindigs", shindig);
+  },
+  patchShindig(shindig) {
+    console.log("Service.postUpdateShindig.shindig.id = " + shindig.id);
+    return apiClient.put("/shindigs/" + shindig.id, shindig);
+  },
+  deleteShindig(id) {
+    console.log("id = " + id);
+    return apiClient.delete("/shindigs/" + id);
   }
 };

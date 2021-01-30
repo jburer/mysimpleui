@@ -33,16 +33,13 @@
         <label>Date</label>
         <datepicker v-model="shindig.date" placeholder="Select a date" />
       </div>
-      <!---->
       <div class="field">
         <label>Select a time</label>
         <select v-model="shindig.time">
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
       </div>
-
       <input type="submit" class="button -fill-gradient" value="Submit" />
-      <!---->
     </form>
   </div>
 </template>
