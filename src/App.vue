@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <NavBar />
-    <EventContainer />
     <router-view :key="$route.fullPath" />
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import EventContainer from "@/components/EventContainer.vue";
 
 export default {
   components: {
-    NavBar,
-    EventContainer
+    NavBar
   }
 };
 </script>

@@ -3,9 +3,9 @@ import Service from "@/services/Service.js";
 export const namespaced = true;
 
 export const state = {
+  shindig: {},
   shindigs: [],
-  shindigsTotal: Number,
-  shindig: {}
+  shindigsTotal: Number
 };
 
 export const mutations = {
@@ -29,9 +29,8 @@ export const mutations = {
 };
 
 export const actions = {
-  createShindig({ commit, rootState, dispatch }, shindig) {
-    console.log("User creating Shindig is " + rootState.user.user.name);
-    return Service.postEvent(shindig)
+  createShindig({ commit }, shindig) {
+    return Service.postShindig(shindig)
       .then(() => {
         commit("ADD_SHINDIG", shindig);
         console.log("Shindig: " + shindig + " created.");
@@ -40,12 +39,6 @@ export const actions = {
         console.log(
           "There was a problem creating your shindig: " + error.message
         );
-        const event = {
-          type: "error",
-          message: "There was a problem creating your shindig: " + error.message
-        };
-        dispatch("event/add", event, { root: true });
-        throw error;
       });
   },
   getShindigs({ commit }, { perPage, page }) {

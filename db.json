@@ -10,8 +10,8 @@
       "organizer": "Adam",
       "title": "Cat Cabaret",
       "description": "Yay felines! Boo canines!",
-      "location": "Meow Town",
-      "date": "2019-01-03T21:54:00.000Z",
+      "location": "Meow Town, USA",
+      "date": "2021-03-31T20:54:00.000Z",
       "time": "2:00",
       "attendees": []
     },
@@ -200,18 +200,6 @@
       "attendees": []
     },
     {
-      "id": 5894587,
-      "user": "Anonymous",
-      "category": "housing",
-      "organizer": "Anonymous",
-      "title": "Let's clean up",
-      "description": "",
-      "location": "",
-      "date": "",
-      "time": "",
-      "attendees": []
-    },
-    {
       "id": 7687659,
       "user": "Anonymous",
       "category": "nature",
@@ -221,6 +209,18 @@
       "location": "",
       "date": "",
       "time": "",
+      "attendees": []
+    },
+    {
+      "id": 4104027,
+      "user": "Anonymous",
+      "category": "education",
+      "organizer": "Anonymous",
+      "title": "We Don't Need No Education",
+      "description": "For realz",
+      "location": "The Wall",
+      "date": "2021-02-25T16:20:00.000Z",
+      "time": "4:00",
       "attendees": []
     }
   ]
