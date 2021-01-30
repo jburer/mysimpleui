@@ -1,0 +1,12 @@
+type shindig @model {
+  id: ID!
+  user: String
+  category: String
+  organizer: String
+  title: String
+  description: String
+  location: String
+  date: AWSDate
+  time: AWSTime
+  attendees: AWSJSON
+}
