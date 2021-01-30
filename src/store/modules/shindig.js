@@ -59,11 +59,6 @@ export const actions = {
       })
       .catch(error => {
         console.log("There was an error:" + error.response);
-        const event = {
-          type: "error",
-          message: "There was a problem fetching shindigs: " + error.message
-        };
-        dispatch("event/add", event, { root: true });
       });
   },
   getShindig({ commit, getters }, id) {
@@ -78,11 +73,6 @@ export const actions = {
         })
         .catch(error => {
           console.log("There was an error:" + error.response);
-          const event = {
-            type: "error",
-            message: "There was a problem fetching shindig: " + error.message
-          };
-          dispatch("event/add", event, { root: true });
         });
     }
   },
