@@ -78,7 +78,7 @@ export default {
         });
     },
     createFreshShindigObject() {
-      const user = "Anonymous";
+      const user = this.$store.state.user.user;
       const id = Math.floor(Math.random() * 10000000);
 
       return {
