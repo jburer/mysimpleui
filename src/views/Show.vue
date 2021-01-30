@@ -29,6 +29,9 @@
       <br />
       Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
     </h5>
+    <form @submit.prevent="deleteShindig">
+      <input type="submit" class="button -fill-gradient" value="Delete" />
+    </form>
   </div>
 </template>
 
@@ -43,7 +46,22 @@ export default {
   computed: mapState({
     shindig: state => state.shindig.shindig
   }),
-  methods: mapActions("shindig", ["fetchShindig"])
+  methods: {
+    deleteShindig() {
+      console.log("this.shindig.id = " + this.shindig.id);
+      this.$store
+        .dispatch("shindig/deleteShindig", this.shindig.id)
+        .then(() => {
+          this.$router.push({
+            name: "read"
+          });
+        })
+        .catch(() => {
+          console.log("There was a problem deleting your shindig.");
+        });
+    },
+    ...mapActions("shindig", ["fetchShindig"])
+  }
 };
 </script>
 
