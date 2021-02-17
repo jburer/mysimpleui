@@ -1,6 +1,6 @@
 <template>
   <div id="nav" class="nav">
-    <router-link to="/" class="brand">Sample App</router-link>
+    <router-link to="/" class="brand">mySampleApp</router-link>
 
     <nav>
       <router-link :to="{ name: 'create' }">Create</router-link>
