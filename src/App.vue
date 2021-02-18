@@ -1,11 +1,6 @@
 <template>
-  <!--
-  <div id="app">
-    <NavBar />
-    <router-view :key="$route.fullPath" />
-  </div>
--->
   <v-app>
+    <!--
     <v-card width="400" class="mx-auto mt-5">
       <v-card-title>
         <h1 class="display-1">Login</h1>
@@ -29,16 +24,39 @@
         <v-btn color="info">Login</v-btn>
       </v-card-actions>
     </v-card>
+    -->
+    <!--<router-view :key="$route.fullPath" />-->
+    <v-app-bar color="primary" dense app dark>
+      <!--<v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>-->
+      <v-toolbar-title>mySampleApp</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <NavBar />
+    </v-app-bar>
+    <v-main>
+      <v-content>
+        <router-view></router-view>
+      </v-content>
+    </v-main>
+    <v-footer color="primary lighten-1" padless dark>
+      <v-row justify="center" no-gutters>
+        <NavBar />
+        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
+          {{ new Date().getFullYear() }} — <strong>mySampleApp</strong>
+        </v-col>
+      </v-row>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-//import NavBar from "@/components/NavBar.vue";
+import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    NavBar
+  },
 
   data: () => ({
     showPassword: false
@@ -47,6 +65,7 @@ export default {
 </script>
 
 <style>
+/*
 html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -276,4 +295,5 @@ select:focus::ms-value {
 select::ms-expand {
   opacity: 0;
 }
+*/
 </style>
