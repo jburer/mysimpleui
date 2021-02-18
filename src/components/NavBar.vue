@@ -1,12 +1,14 @@
 <template>
   <div id="nav" class="nav">
-    <router-link to="/" class="brand">mySampleApp</router-link>
+    <v-app-bar color="blue">
+      <router-link to="/" class="brand">mySampleApp</router-link>
 
-    <nav>
-      <router-link :to="{ name: 'create' }">Create</router-link>
-      |
-      <router-link :to="{ name: 'read' }">Read</router-link>
-    </nav>
+      <nav>
+        <router-link :to="{ name: 'create' }">Create</router-link>
+        |
+        <router-link :to="{ name: 'read' }">Read</router-link>
+      </nav>
+    </v-app-bar>
   </div>
 </template>
 
