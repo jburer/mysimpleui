@@ -8,15 +8,5 @@ export default new Vuex.Store({
   modules: {
     shindig
   },
-  state: {
-    categories: [
-      "sustainability",
-      "nature",
-      "animal welfare",
-      "housing",
-      "education",
-      "food",
-      "community"
-    ]
-  }
+  state: {}
 });
