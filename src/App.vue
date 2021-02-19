@@ -33,8 +33,27 @@
       <NavBar />
     </v-app-bar>
     <v-main>
-      <v-content>
-        <router-view></router-view>
+      <v-content
+        class="spacing-playground pa-0"
+        fluid
+        style="border: 1px solid black"
+      >
+        <v-card
+          class="d-flex justify-end align-center pr-6"
+          flat
+          style="border: 1px solid black"
+        >
+          Light / Dark
+          <v-switch
+            dense
+            ripple
+            @click="toggleTheme"
+            style="border: 1px solid black"
+          ></v-switch>
+        </v-card>
+        <v-card class="px-6">
+          <router-view></router-view>
+        </v-card>
       </v-content>
     </v-main>
     <v-footer color="primary lighten-1" padless dark>
@@ -60,7 +79,13 @@ export default {
 
   data: () => ({
     showPassword: false
-  })
+  }),
+  methods: {
+    toggleTheme() {
+      (this.$vuetify.theme.themes.dark.anchor = "#41b883"),
+        (this.$vuetify.theme.dark = !this.$vuetify.theme.dark);
+    }
+  }
 };
 </script>
 
