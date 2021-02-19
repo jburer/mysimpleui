@@ -15,10 +15,11 @@
       |
     </template>
     <template v-if="hasNextPage">
-      <router-link :to="{ name: 'read', query: { page: page + 1 } }" rel="prev">
-        Next Page
+      <router-link :to="{ name: 'read', query: { page: page + 1 } }" rel="next">
+         Next Page
       </router-link>
     </template>
+    <v-icon dense>mdi-arrow-left-thin-circle-outline</v-icon>
     <BaseIcon />
   </div>
 </template>
@@ -32,6 +33,8 @@ export default {
     Card
   },
   created() {
+    console.log("\nRead.created() ... start");
+    console.log(" ... Read.created() page = " + this.page);
     this.perPage = 3;
     this.$store.dispatch("shindig/getShindigs", {
       perPage: this.perPage,
@@ -45,7 +48,7 @@ export default {
     hasNextPage() {
       return this.shindig.shindigsTotal > this.page * this.perPage;
     },
-    ...mapState(["shindig", "user"])
+    ...mapState(["shindig"])
   }
 };
 </script>

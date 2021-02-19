@@ -25,34 +25,23 @@
       </v-card-actions>
     </v-card>
     -->
-    <!--<router-view :key="$route.fullPath" />-->
     <v-app-bar color="primary" dense app dark>
-      <!--<v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>-->
       <v-toolbar-title>mySampleApp</v-toolbar-title>
       <v-spacer></v-spacer>
       <NavBar />
     </v-app-bar>
-    <v-main>
-      <v-content
-        class="spacing-playground pa-0"
-        fluid
-        style="border: 1px solid black"
-      >
-        <v-card
-          class="d-flex justify-end align-center pr-6"
-          flat
-          style="border: 1px solid black"
-        >
+    <v-main
+      class="spacing-playground pa-0"
+      fluid
+      style="border: 1px solid black"
+    >
+      <v-content>
+        <v-card class="d-flex justify-end align-center pr-6" flat>
           Light / Dark
-          <v-switch
-            dense
-            ripple
-            @click="toggleTheme"
-            style="border: 1px solid black"
-          ></v-switch>
+          <v-switch dense ripple @click="toggleTheme" class="ml-3"></v-switch>
         </v-card>
-        <v-card class="px-6">
-          <router-view></router-view>
+        <v-card class="px-6" flat>
+          <router-view :key="$route.fullPath" />
         </v-card>
       </v-content>
     </v-main>

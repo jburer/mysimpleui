@@ -1,15 +1,16 @@
 <template>
-  <router-link
-    class="shindig-link"
-    :to="{ name: 'show', params: { id: shindig.id } }"
-  >
-    <div class="shindig-card -shadow">
-      <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
-      <h4 class="title">{{ shindig.title }}</h4>
-      <BaseIcon name="users">{{ shindig.attendees.length }} attending</BaseIcon>
-      <span></span>
-    </div>
-  </router-link>
+  <div>
+    <router-link
+      class="shindig-link"
+      :to="{ name: 'show', params: { id: shindig.id } }"
+    >
+      <div class="shindig-card -shadow">
+        <h4 class="title">{{ shindig.title }}</h4>
+        <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
+        <span></span>
+      </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
