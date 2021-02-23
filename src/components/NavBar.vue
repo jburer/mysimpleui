@@ -8,13 +8,19 @@
       rounded
       :to="link.url"
       ><v-icon>{{ link.icon }}</v-icon>
-      {{ link.label }}
+      <v-sheet color="white" elevation="1">{{ link.label }}</v-sheet>
     </v-btn>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    bar: {
+      type: String,
+      required: true
+    }
+  },
   data: () => ({
     drawer: false,
     group: null,
