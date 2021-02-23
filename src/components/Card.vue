@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-card>
     <router-link
       class="shindig-link"
       :to="{ name: 'show', params: { id: shindig.id } }"
@@ -10,18 +10,22 @@
         <span></span>
       </div>
     </router-link>
-  </div>
+  </v-card>
 </template>
 
 <script>
 export default {
   props: {
-    shindig: Object
+    shindig: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>
 
 <style scoped>
+/*
 .shindig-card {
   padding: 20px;
   margin-bottom: 24px;
@@ -41,4 +45,5 @@ export default {
   text-decoration: none;
   font-weight: 100;
 }
+*/
 </style>

@@ -1,59 +1,73 @@
 <template>
-  <div>
-    <h1 class="title">{{ shindig.title }}</h1>
-    <div class="shindig-header">
-      <h3><BaseIcon name="clock" /> Time & Date</h3>
-      <p>@{{ shindig.time }} on {{ shindig.date }}</p>
-    </div>
-    <h3><BaseIcon name="map" /> Location</h3>
-    <address>{{ shindig.location }}</address>
-    <h3><BaseIcon name="list" /> Details</h3>
-    <p>{{ shindig.description }}</p>
-    <h3>
-      <span class="badge -fill-gradient">{{
-        shindig.attendess ? shindig.attendees.length : 0
-      }}</span>
-      Attendees
-    </h3>
-    <ul class="list-group">
-      <li
-        v-for="(attendee, index) in shindig.attendees"
-        :key="index"
-        class="list-item"
+  <v-container>
+    <v-row>
+      <v-col class="text-h3">
+        {{ shindig.title }}
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="text-h6"
+        ><v-icon class="mr-2">mdi-calendar</v-icon>Date:</v-col
       >
-        <b>{{ shindig.name }}</b>
-      </li>
-    </ul>
-    <h5 class="-text-lightgray">
-      Category: {{ shindig.category }}
-      <br />
-      Organized by {{ shindig.organizer ? shindig.organizer.name : "" }}
-    </h5>
-    <table align="right">
-      <tr>
-        <td>
-          <form @submit.prevent="updateShindig">
-            <input type="submit" class="button -fill-gradient" value="Update" />
-          </form>
-        </td>
-        <td>
-          <form @submit.prevent="deleteShindig">
-            <input type="submit" class="button -fill-gradient" value="Delete" />
-          </form>
-        </td>
-      </tr>
-    </table>
-  </div>
+      <v-col>{{ shindig.date }}</v-col>
+    </v-row>
+    <v-row justify="space-around" align="center">
+      <v-col class="text-h6"
+        ><v-icon class="mr-2">mdi-clock-time-four-outline</v-icon>Start
+        Time:</v-col
+      >
+      <v-col>{{ shindig.starttime }}</v-col>
+      <v-col class="text-h6"
+        ><v-icon class="mr-2">mdi-clock-time-four-outline</v-icon>End
+        Time:</v-col
+      >
+      <v-col>{{ shindig.endtime }} </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="text-h6"
+        ><v-icon class="mr-2">mdi-map</v-icon>Location:</v-col
+      >
+    </v-row>
+    <v-row>
+      <v-col>{{ shindig.location }}</v-col>
+    </v-row>
+    <v-row>
+      <v-col class="text-h6"
+        ><v-icon class="mr-2">mdi-format-list-bulleted</v-icon>Details:</v-col
+      >
+    </v-row>
+    <v-row>
+      <v-col>{{ shindig.description }}</v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-form @submit.prevent="updateShindig">
+          <v-btn type="submit" color="primary" class="mr-4">Update</v-btn>
+        </v-form>
+      </v-col>
+      <v-col>
+        <v-form @submit.prevent="deleteShindig">
+          <v-btn type="submit" color="primary" class="mr-4">Delete</v-btn>
+        </v-form>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 
 export default {
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   created() {
+    console.log("\nShow.created() ... start");
+    console.log(" ... Show.created() this.id = " + this.id);
     this.getShindig(this.id);
-    console.log("this.getShindig(this.id) = " + this.getShindig(this.id));
   },
   computed: mapState({
     shindig: state => state.shindig.shindig
@@ -85,6 +99,7 @@ export default {
 </script>
 
 <style scoped>
+/*
 .location {
   margin-bottom: 0;
 }
@@ -103,4 +118,5 @@ export default {
   padding: 1em 0;
   border-bottom: solid 1px #e5e5e5;
 }
+*/
 </style>

@@ -8,7 +8,8 @@
     />
     <template v-if="page != 1">
       <router-link :to="{ name: 'read', query: { page: page - 1 } }" rel="prev"
-        >Prev Page</router-link
+        ><v-icon dense>mdi-arrow-left-thin-circle-outline</v-icon>
+        Prev</router-link
       >
     </template>
     <template v-if="page != 1 && hasNextPage">
@@ -16,10 +17,12 @@
     </template>
     <template v-if="hasNextPage">
       <router-link :to="{ name: 'read', query: { page: page + 1 } }" rel="next">
-         Next Page
+        Next<v-icon dense class="text-decortation: none"
+          >mdi-arrow-right-thin-circle-outline</v-icon
+        >
       </router-link>
     </template>
-    <v-icon dense>mdi-arrow-left-thin-circle-outline</v-icon>
+
     <BaseIcon />
   </div>
 </template>

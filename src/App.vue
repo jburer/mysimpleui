@@ -25,16 +25,12 @@
       </v-card-actions>
     </v-card>
     -->
-    <v-app-bar color="primary" dense app dark>
+    <v-app-bar color="primary" dense app>
       <v-toolbar-title>mySampleApp</v-toolbar-title>
       <v-spacer></v-spacer>
-      <NavBar />
+      <NavBar :bar="header" />
     </v-app-bar>
-    <v-main
-      class="spacing-playground pa-0"
-      fluid
-      style="border: 1px solid black"
-    >
+    <v-main class="spacing-playground pa-0" fluid>
       <v-content>
         <v-card class="d-flex justify-end align-center pr-6" flat>
           Light / Dark
@@ -45,10 +41,10 @@
         </v-card>
       </v-content>
     </v-main>
-    <v-footer color="primary lighten-1" padless dark>
+    <v-footer color="primary lighten-1" padless>
       <v-row justify="center" no-gutters>
-        <NavBar />
-        <v-col class="primary lighten-2 py-4 text-center white--text" cols="12">
+        <NavBar :bar="footer" />
+        <v-col class="primary lighten-2 py-4 text-center" cols="12">
           {{ new Date().getFullYear() }} — <strong>mySampleApp</strong>
         </v-col>
       </v-row>
@@ -57,23 +53,52 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "App",
-
+  props: {
+    header: {
+      type: String,
+      default: "header"
+    },
+    footer: {
+      type: String,
+      default: "footer"
+    }
+  },
   components: {
     NavBar
   },
-
   data: () => ({
     showPassword: false
   }),
+  created() {
+    console.log("\nApp.created() ... start");
+    console.log(
+      " ... App.created() this.$vuetify.theme.dark = " +
+        this.$vuetify.theme.dark
+    );
+
+    if (this.$store.theme) {
+      console.log(
+        " ... App.created() this.$store.theme = " + this.$store.theme
+      );
+      //this.$vuetify.theme.dark = this.getTheme();
+    }     /*else {
+      console.log(" ... App.created() this.setTheme(this.$vuetify.theme.dark)");
+      this.setTheme(this.$vuetify.theme.dark);
+    }
+    */
+  },
   methods: {
     toggleTheme() {
-      (this.$vuetify.theme.themes.dark.anchor = "#41b883"),
-        (this.$vuetify.theme.dark = !this.$vuetify.theme.dark);
-    }
+      console.log("\nApp.toggleTheme() ... start");
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+      this.setTheme(this.$vuetify.theme.dark);
+    },
+    ...mapActions("theme", ["setTheme"])
   }
 };
 </script>

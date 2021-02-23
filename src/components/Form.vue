@@ -56,7 +56,7 @@
                 >
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                      v-model="shindig.time"
+                      v-model="shindig.starttime"
                       label="Start Time"
                       prepend-icon="mdi-clock-time-four-outline"
                       readonly
@@ -66,7 +66,7 @@
                   </template>
                   <v-time-picker
                     v-if="starttimemenu"
-                    v-model="shindig.time"
+                    v-model="shindig.starttime"
                     :max="shindig.endtime"
                     @click:minute="$refs.menu.save(time)"
                   ></v-time-picker>
@@ -116,7 +116,21 @@
 
 <script>
 export default {
-  props: ["shindig", "formname", "buttonname"],
+  props: {
+    shindig: {
+      type: Object,
+      required: true
+    },
+    formname: {
+      type: String,
+      required: true
+    }
+    /*
+    buttonname: {
+      type: String
+    }
+    */
+  },
   components: {},
   data() {
     return {
