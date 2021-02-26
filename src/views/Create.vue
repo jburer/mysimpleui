@@ -1,19 +1,22 @@
 <template>
   <div>
-    <h1>Create</h1>
+    <Title :title="title" />
     <Form :shindig="shindig" :formname="formname" />
   </div>
 </template>
 
 <script>
+import Title from "@/components/Title.vue";
 import Form from "@/components/Form.vue";
 
 export default {
   components: {
+    Title,
     Form
   },
   data() {
     return {
+      title: "Create",
       formname: "callCreateShindig",
       shindig: this.createFreshShindigObject()
     };

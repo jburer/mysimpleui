@@ -1,16 +1,39 @@
 <template>
-  <v-card>
-    <router-link
-      class="shindig-link"
-      :to="{ name: 'show', params: { id: shindig.id } }"
-    >
-      <div class="shindig-card -shadow">
-        <h4 class="title">{{ shindig.title }}</h4>
-        <span class="eyebrow">@{{ shindig.time }} on {{ shindig.date }}</span>
-        <span></span>
-      </div>
-    </router-link>
-  </v-card>
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-card
+          class="pa-2"
+          hover
+          :to="{ name: 'show', params: { id: shindig.id } }"
+        >
+          <v-card-text>
+            <p class="display-1 text--primary">
+              {{ shindig.title }}
+            </p>
+            <div class="text--primary">
+              @ {{ shindig.starttime }} on {{ shindig.date }}
+            </div>
+          </v-card-text>
+
+          <!--
+          <router-link
+            class="shindig-link"
+            :to="{ name: 'show', params: { id: shindig.id } }"
+          >
+            <div class="shindig-card -shadow">
+              <h4 class="title">{{ shindig.title }}</h4>
+              <span class="eyebrow"
+                >@{{ shindig.time }} on {{ shindig.date }}</span
+              >
+              <span></span>
+            </div>
+          </router-link>
+          -->
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -24,26 +47,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/*
-.shindig-card {
-  padding: 20px;
-  margin-bottom: 24px;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-.shindig-card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
-}
-.shindig-card > .title {
-  margin: 0;
-}
-
-.shindig-link {
-  color: black;
-  text-decoration: none;
-  font-weight: 100;
-}
-*/
-</style>
+<style></style>

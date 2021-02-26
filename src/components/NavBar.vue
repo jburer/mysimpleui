@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="bar == 'header'">
     <v-btn
       v-for="link in links"
       :key="`${link.label}-header-link`"
@@ -7,8 +7,20 @@
       text
       rounded
       :to="link.url"
+      ><v-icon class="mr-1">{{ link.icon }}</v-icon>
+      {{ link.label }}
+    </v-btn>
+  </div>
+  <div v-else>
+    <v-btn
+      v-for="link in links"
+      :key="`${link.label}-header-link`"
+      class="mx-2"
+      text
+      rounded
+      small
+      :to="link.url"
       ><v-icon>{{ link.icon }}</v-icon>
-      <v-sheet color="white" elevation="1">{{ link.label }}</v-sheet>
     </v-btn>
   </div>
 </template>
