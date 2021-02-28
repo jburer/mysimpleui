@@ -41,6 +41,17 @@ export const actions = {
         );
       });
   },
+  getTotalShindigs({ commit }) {
+    console.log("\nshindigs.getTotalShindings() ... start");
+    Service.getTotalShindigs()
+      .then(response => {
+        console.log(response);
+        commit("SET_SHINDIGS_TOTAL", parseInt(response.data.count));
+      })
+      .catch(error => {
+        console.log("There was an error:" + error.response);
+      });
+  },
   getShindigs({ commit }, { perPage, page }) {
     Service.getShindigs(perPage, page)
       .then(response => {
@@ -70,7 +81,7 @@ export const actions = {
     }
   },
   updateShindig({ commit }, shindig) {
-    return Service.patchShindig(shindig)
+    return Service.putShindig(shindig)
       .then(() => {
         commit("SET_SHINDIG", shindig);
         console.log("Shindig: " + shindig + " updated.");

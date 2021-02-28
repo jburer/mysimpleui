@@ -72,9 +72,9 @@ export default {
   }),
   methods: {
     deleteShindig() {
-      console.log("this.shindig.id = " + this.shindig.id);
+      console.log("this.shindig.id = " + this.shindig._id);
       this.$store
-        .dispatch("shindig/deleteShindig", this.shindig.id)
+        .dispatch("shindig/deleteShindig", this.shindig._id)
         .then(() => {
           this.$router.push({
             name: "read"
@@ -85,7 +85,7 @@ export default {
         });
     },
     updateShindig() {
-      console.log("this.shindig.id = " + this.shindig.id);
+      console.log("this.shindig.id = " + this.shindig._id);
       this.$router.push({
         name: "update",
         params: { id: this.shindig.id }
@@ -95,26 +95,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-/*
-.location {
-  margin-bottom: 0;
-}
-.location > .icon {
-  margin-left: 10px;
-}
-.shindig-header > .title {
-  margin: 0;
-}
-.list-group {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.list-group > .list-item {
-  padding: 1em 0;
-  border-bottom: solid 1px #e5e5e5;
-}
-*/
-</style>

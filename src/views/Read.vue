@@ -75,6 +75,7 @@ export default {
       perPage: this.perPage,
       page: this.page
     });
+    this.$store.dispatch("shindig/getTotalShindigs");
   },
   computed: {
     page() {
