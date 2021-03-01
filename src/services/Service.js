@@ -23,9 +23,11 @@ export default {
     return apiClient.post("/shindigs", shindig);
   },
   putShindig(shindig) {
-    console.log("Service.putShindig.shindig._id = " + shindig._id);
-    console.log("Service.putShindig.shindig = " + JSON.stringify(shindig));
-    let url = "/shindigs/" + shindig._id + "&" + JSON.stringify(shindig);
+    console.log("Service.putShindig.shindig.id = " + shindig.id);
+    let myArray = JSON.parse(shindig);
+    myArray.shift();
+    console.log("Service.putShindig.shindig = " + JSON.stringify(myArray));
+    let url = "/shindigs/" + shindig.id + "&" + JSON.stringify(myArray);
     console.log(url);
     return apiClient.put(url);
   },
