@@ -2,12 +2,12 @@
 
 The first part of my three part app: The UI.
 
-- _The corresponding **API** is here: (https://github.com/jburer/mysimpleapi)._
-- _The corresponding **datastore** is here: (https://github.com/jburer/mysimpledb)._
+- _The corresponding **API**: (https://github.com/jburer/mysimpleapi)._
+- _The corresponding **datastore**: (https://github.com/jburer/mysimpledb)._
 
 ## myPurpose
 
-It's "concept" is to provide users a way to manage local events around town, or shindigs
+Its concept is to provide users a way to manage local events around town, or shindigs
 as I call them. It provides CRUD capabilities to any user, and allows them to manage the data in the
 datastore, through the API, from the UI.
 
@@ -15,7 +15,7 @@ Designed to give me a "clean" system for demonstrating Security and
 Privacy principals, the only principals applied to the base is that which is inherent
 in the frameworks, software, and services that I'm using to build the system.
 
-As I work through the fundementals of Security and Privacy, I'll apply
+As I work through the fundamentals of Security and Privacy, I'll apply
 them to this app, and create different branches to give you that "before
 and after" feel.
 

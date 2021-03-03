@@ -6,7 +6,7 @@
         This is a simple 3 tiered app - a UI, an API, and a datastore.
       </p>
       <p>
-        It's "concept" is to provide users a way to manage local events around
+        Its concept is to provide users a way to manage local events around
         town, or shindigs as I call them. It provides CRUD capabilities to any
         user, and allows them to manage the data in the datastore, through the
         API, from the UI.
@@ -18,7 +18,7 @@
         using to build the system.
       </p>
       <p>
-        As I work through the fundementals of Security and Privacy, I'll apply
+        As I work through the fundamentals of Security and Privacy, I'll apply
         them to this app, and create different branches to give you that "before
         and after" feel.
       </p>
