@@ -3,7 +3,7 @@
     <Title :title="title" />
     <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
       <p>
-        This is a simple 3 tiered app - a frontend UI, an API, and a datastore.
+        This is a simple 3 tiered app - a UI, an API, and a datastore.
       </p>
       <p>
         It's "concept" is to provide users a way to manage local events around
