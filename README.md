@@ -2,7 +2,7 @@
 
 The first part of my three part app: The UI.
 
-- _The corresponding **API**: (https://github.com/jburer/mysimpleapi)._
+- _The corresponding **Service**: (https://github.com/jburer/mysimpleservice)._
 - _The corresponding **datastore**: (https://github.com/jburer/mysimpledb)._
 
 ## myPurpose
@@ -38,7 +38,7 @@ This is pretty straightforward UI that sits independently from the API and datas
 
 The `mysimpleui` UI is a Vue app that uses Axios to communicate with the API.
 
-It is designed to be run inside a Docker container, and is exposed on port `:8080`.
+It is designed to be run inside a Docker container, and is exposed on port `:8180`.
 
 ![mySimpleUI](/images/mySimpleUI.gif)
 
@@ -64,5 +64,5 @@ Clone the repository and move to the `mysimpleui` directory.
 This will make the UI available at the following URI:
 
 <pre>
-    http://localhost:8080
+    http://localhost:8180
 </pre>

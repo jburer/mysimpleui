@@ -5,7 +5,7 @@ services:
     container_name: mysimpleapp
     build: .
     ports:
-    - "8080:80"
+    - "8180:80"
 
 networks:
   default:
