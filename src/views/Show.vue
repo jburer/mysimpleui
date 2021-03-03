@@ -1,50 +1,64 @@
 <template>
   <div>
-    <h1>{{ shindig.title }}</h1>
+    <Title :title="title" />
     <v-container>
       <v-row>
-        <v-col class="text-h6"
-          ><v-icon class="mr-2">mdi-calendar</v-icon>Date:</v-col
-        >
-        <v-col>{{ shindig.date }}</v-col>
-      </v-row>
-      <v-row justify="space-around" align="center">
-        <v-col class="text-h6"
-          ><v-icon class="mr-2">mdi-clock-time-four-outline</v-icon>Start
-          Time:</v-col
-        >
-        <v-col>{{ shindig.starttime }}</v-col>
-        <v-col class="text-h6"
-          ><v-icon class="mr-2">mdi-clock-time-four-outline</v-icon>End
-          Time:</v-col
-        >
-        <v-col>{{ shindig.endtime }} </v-col>
-      </v-row>
-      <v-row>
-        <v-col class="text-h6"
-          ><v-icon class="mr-2">mdi-map</v-icon>Location:</v-col
-        >
-      </v-row>
-      <v-row>
-        <v-col>{{ shindig.location }}</v-col>
-      </v-row>
-      <v-row>
-        <v-col class="text-h6"
-          ><v-icon class="mr-2">mdi-format-list-bulleted</v-icon>Details:</v-col
-        >
-      </v-row>
-      <v-row>
-        <v-col>{{ shindig.description }}</v-col>
-      </v-row>
-      <v-row>
-        <v-col>
-          <v-form @submit.prevent="updateShindig">
-            <v-btn type="submit" color="primary" class="mr-4">Update</v-btn>
-          </v-form>
+        <v-col class="pa-3" d-flex>
+          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+            <v-icon class="mr-3">mdi-subtitles-outline</v-icon>
+            <span class="grey--text grey--darken-4 font-weight-medium"
+              >Title:</span
+            >
+            {{ shindig.title }}
+          </v-col>
+          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+            <v-icon class="mr-3">mdi-image-text</v-icon>
+            <span class="grey--text grey--darken-4 font-weight-medium"
+              >Description</span
+            >
+            {{ shindig.description }}
+          </v-col>
+          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+            <v-icon class="mr-3">mdi-map</v-icon>
+            <span class="grey--text grey--darken-4 font-weight-medium"
+              >Location:</span
+            >
+            {{ shindig.location }}
+          </v-col>
+          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+            <v-icon class="mr-3">mdi-calendar</v-icon>
+            <span class="grey--text grey--darken-4 font-weight-medium"
+              >Date:</span
+            >
+            {{ shindig.date }}
+          </v-col>
+          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+            <v-row justify="space-around" align="center">
+              <v-col class="text-h7"
+                ><v-icon class="mr-3">mdi-clock-time-four-outline</v-icon>
+                <span class="grey--text grey--darken-4 font-weight-medium"
+                  >Start Time:</span
+                >
+                {{ shindig.starttime }}</v-col
+              >
+              <v-col class="text-h7"
+                ><v-icon class="mr-3">mdi-clock-time-eight-outline</v-icon>
+                <span class="grey--text grey--darken-4 font-weight-medium"
+                  >End Time:</span
+                >
+                {{ shindig.endtime }}
+              </v-col>
+            </v-row>
+          </v-col>
         </v-col>
-        <v-col>
+      </v-row>
+      <v-row>
+        <v-col class="d-flex">
+          <v-form @submit.prevent="updateShindig">
+            <v-btn type="submit" color="secondary" class="mr-4">Update</v-btn>
+          </v-form>
           <v-form @submit.prevent="deleteShindig">
-            <v-btn type="submit" color="primary" class="mr-4">Delete</v-btn>
+            <v-btn type="submit" color="error" class="mr-4">Delete</v-btn>
           </v-form>
         </v-col>
       </v-row>
@@ -54,6 +68,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import Title from "@/components/Title.vue";
 
 export default {
   props: {
@@ -61,6 +76,14 @@ export default {
       type: Number,
       required: true
     }
+  },
+  components: {
+    Title
+  },
+  data() {
+    return {
+      title: "myShindig"
+    };
   },
   created() {
     console.log("\nShow.created() ... start");

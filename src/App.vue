@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary" dense app dark>
-      <v-toolbar-title>mySampleApp</v-toolbar-title>
+      <v-toolbar-title>mySimpleApp</v-toolbar-title>
       <v-spacer></v-spacer>
       <NavBar :bar="header" />
     </v-app-bar>
@@ -23,7 +23,7 @@
       <v-row justify="center" no-gutters>
         <NavBar :bar="footer" />
         <v-col class="primary darken-2 py-4 text-center" cols="12">
-          {{ new Date().getFullYear() }} — <strong>mySampleApp</strong>
+          {{ new Date().getFullYear() }} — <strong>mySimpleApp</strong>
         </v-col>
       </v-row>
     </v-footer>

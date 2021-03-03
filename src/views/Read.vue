@@ -6,6 +6,8 @@
       :key="shindig.id"
       :shindig="shindig"
     />
+    <Pagination />
+    <!--
     <v-container class="pa-0 pt-5">
       <v-btn
         v-if="page != 1"
@@ -35,20 +37,8 @@
           >mdi-arrow-right-thin-circle-outline</v-icon
         >
       </v-btn>
-      <v-btn
-        v-if="hasNextPage"
-        class="mx-2"
-        text
-        link
-        rounded
-        color="secondary"
-        :to="next"
-        rel="next"
-        >Next<v-icon dense class="ml-2"
-          >mdi-arrow-right-thin-circle-outline</v-icon
-        >
-      </v-btn>
     </v-container>
+    -->
   </div>
 </template>
 
@@ -56,33 +46,41 @@
 import { mapState } from "vuex";
 import Title from "@/components/Title.vue";
 import Card from "@/components/Card.vue";
+import Pagination from "@/components/Pagination.vue";
 
 export default {
   components: {
     Title,
-    Card
+    Card,
+    Pagination
   },
   data() {
     return {
-      title: "Read"
+      title: "Shindigs"
     };
   },
   created() {
     console.log("\nRead.created() ... start");
+    /*
     console.log(" ... Read.created() page = " + this.page);
     this.perPage = 3;
     this.$store.dispatch("shindig/getShindigs", {
       perPage: this.perPage,
       page: this.page
     });
-    this.$store.dispatch("shindig/getTotalShindigs");
+    */
+    if (this.shindig.shindigsTotal === null) {
+      console.log("this.shindig.shindigsTotal = " + this.shindig.shindigsTotal);
+      this.$store.dispatch("shindig/getShindigsTotal");
+    }
   },
   computed: {
+    /*
     page() {
       return parseInt(this.$route.query.page) || 1;
     },
     next() {
-      return "/shindig/read";
+      return "/";
     },
     nextPage() {
       return this.page + 1;
@@ -90,6 +88,7 @@ export default {
     hasNextPage() {
       return this.shindig.shindigsTotal > this.page * this.perPage;
     },
+    */
     ...mapState(["shindig"])
   }
 };

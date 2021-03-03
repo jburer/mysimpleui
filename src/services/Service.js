@@ -11,28 +11,38 @@ const apiClient = axios.create({
 
 export default {
   getShindigs(perPage, page) {
-    return apiClient.get("/shindigs?_limit=" + perPage + "&_page=" + page);
+    console.log("\nService.getShindigs() ... start");
+    page = page - 1;
+    let url = "/shindigs?_limit=" + perPage + "&_page=" + page;
+    console.log(" ... Service.getShindigs() url = " + url);
+    return apiClient.get(url);
   },
-  getTotalShindigs() {
+  getShindigsTotal() {
+    console.log("\nService.getShindigsTotal() ... start");
     return apiClient.get("/shindigs/count");
   },
   getShindig(id) {
-    return apiClient.get("/shindigs/id/" + id);
+    console.log("\nService.getShindigs() ... start");
+    let url = "/shindigs/id/" + id;
+    console.log(url);
+    return apiClient.get(url);
   },
   postShindig(shindig) {
+    console.log("\nService.postShindig() ... start");
     return apiClient.post("/shindigs", shindig);
   },
   putShindig(shindig) {
-    console.log("Service.putShindig.shindig.id = " + shindig.id);
-    let myArray = JSON.parse(shindig);
-    myArray.shift();
-    console.log("Service.putShindig.shindig = " + JSON.stringify(myArray));
-    let url = "/shindigs/" + shindig.id + "&" + JSON.stringify(myArray);
+    console.log("\nService.putShindig() ... start");
+    console.log(" ... Service.putShindig.shindig.id = " + shindig.id);
+    console.log(" ... Service.putShindig.shindig = " + JSON.stringify(shindig));
+    let url = "/shindigs/" + shindig.id + "&" + JSON.stringify(shindig);
     console.log(url);
     return apiClient.put(url);
   },
   deleteShindig(id) {
-    console.log("id = " + id);
-    return apiClient.delete("/shindigs/" + id);
+    console.log("\nService.deleteShindig() ... start");
+    let url = "/shindigs/id/" + id;
+    console.log(url);
+    return apiClient.delete(url);
   }
 };

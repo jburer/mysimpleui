@@ -41,11 +41,11 @@ export const actions = {
         );
       });
   },
-  getTotalShindigs({ commit }) {
-    console.log("\nshindigs.getTotalShindings() ... start");
-    Service.getTotalShindigs()
+  getShindigsTotal({ commit }) {
+    console.log("\nshindigs.getShindigsTotal() ... start");
+    Service.getShindigsTotal()
       .then(response => {
-        console.log(response);
+        console.log(response.data);
         commit("SET_SHINDIGS_TOTAL", parseInt(response.data.count));
       })
       .catch(error => {
@@ -56,10 +56,6 @@ export const actions = {
     Service.getShindigs(perPage, page)
       .then(response => {
         commit("SET_SHINDIGS", response.data);
-        commit(
-          "SET_SHINDIGS_TOTAL",
-          parseInt(response.headers["x-total-count"])
-        );
       })
       .catch(error => {
         console.log("There was an error:" + error.response);

@@ -38,20 +38,16 @@ export default {
     },
     createFreshShindigObject() {
       console.log("Create.createFreshShindigObject ... start");
-      const user = "Anonymous";
       const id = Math.floor(Math.random() * 10000000);
 
       return {
         id: id,
-        user: user,
-        category: "",
-        organizer: user,
         title: "",
         description: "",
         location: "",
         date: "",
-        time: "",
-        attendees: []
+        starttime: "",
+        endtime: ""
       };
     }
   }

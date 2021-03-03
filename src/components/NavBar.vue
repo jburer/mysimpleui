@@ -37,23 +37,31 @@ export default {
     drawer: false,
     group: null,
     links: [
+      /*
       {
         label: "Home",
         url: "/",
         name: "home",
         icon: "mdi-home"
       },
+      */
       {
-        label: "Create",
+        label: "Shindigs",
+        url: "/shindig/read",
+        name: "read",
+        icon: "mdi-format-list-bulleted-square"
+      },
+      {
+        label: "New",
         url: "/shindig/create",
         name: "create",
         icon: "mdi-pencil"
       },
       {
-        label: "Read",
-        url: "/shindig/read",
-        name: "read",
-        icon: "mdi-format-list-bulleted-square"
+        label: "About",
+        url: "/about",
+        name: "about",
+        icon: "mdi-information-outline"
       }
     ]
   })

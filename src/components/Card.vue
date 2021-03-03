@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
+      <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
         <v-card
           class="pa-2"
           hover
@@ -15,21 +15,6 @@
               @ {{ shindig.starttime }} on {{ shindig.date }}
             </div>
           </v-card-text>
-
-          <!--
-          <router-link
-            class="shindig-link"
-            :to="{ name: 'show', params: { id: shindig.id } }"
-          >
-            <div class="shindig-card -shadow">
-              <h4 class="title">{{ shindig.title }}</h4>
-              <span class="eyebrow"
-                >@{{ shindig.time }} on {{ shindig.date }}</span
-              >
-              <span></span>
-            </div>
-          </router-link>
-          -->
         </v-card>
       </v-col>
     </v-row>

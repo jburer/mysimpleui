@@ -3,15 +3,27 @@
     <v-row>
       <v-col>
         <v-form @submit.prevent="submitForm" ref="shindigForm">
-          <v-text-field label="Title" v-model="shindig.title"></v-text-field>
-          <v-text-field
-            label="Description"
-            v-model="shindig.description"
-          ></v-text-field>
-          <v-text-field
-            label="Location"
-            v-model="shindig.location"
-          ></v-text-field>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Title"
+              v-model="shindig.title"
+              prepend-icon="mdi-subtitles-outline"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Description"
+              v-model="shindig.description"
+              prepend-icon="mdi-image-text"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
+              label="Location"
+              v-model="shindig.location"
+              prepend-icon="mdi-map"
+            ></v-text-field>
+          </v-col>
           <!--Date Picker-->
           <v-col cols="12" sm="6" md="4">
             <v-menu
@@ -89,7 +101,7 @@
                     <v-text-field
                       v-model="shindig.endtime"
                       label="End Time"
-                      prepend-icon="mdi-clock-time-four-outline"
+                      prepend-icon="mdi-clock-time-eight-outline"
                       readonly
                       v-bind="attrs"
                       v-on="on"

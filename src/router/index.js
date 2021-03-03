@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/views/Home.vue";
+//import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
 import Create from "@/views/Create.vue";
 import Read from "@/views/Read.vue";
 import Update from "@/views/Update.vue";
@@ -9,10 +10,22 @@ import Show from "@/views/Show.vue";
 Vue.use(VueRouter);
 
 const routes = [
+  /*
   {
     path: "/",
     name: "home",
-    component: Home
+    component: Read
+  },
+  */
+  {
+    path: "/",
+    name: "home",
+    component: Read
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About
   },
   {
     path: "/shindig/create",
