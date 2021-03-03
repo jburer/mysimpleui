@@ -1,5 +1,4 @@
 <template>
-  <!--<div class="d-flex justify-end align-center mt-12">-->
   <div class="d-flex justify-end align-center text-overline font-weight-light">
     <span class="secondary--text">Light / Dark</span>
     <v-switch
@@ -18,24 +17,10 @@ import { mapActions, mapState } from "vuex";
 export default {
   created() {
     console.log("\nTheme.created() ... start");
-    console.log(
-      " ... Theme.created() this.$vuetify.theme.dark = " +
-        this.$vuetify.theme.dark
-    );
 
-    if (this.$store.state.theme) {
-      console.log(
-        " ... Theme.created() this.$store.theme = " + this.$store.state.theme
-      );
-      console.log(
-        " ... Theme.created() this.$store.theme.themeDark = " +
-          this.$store.state.theme.themeDark
-      );
-      this.$vuetify.theme.dark = this.$store.state.theme.themeDark;
+    if (this.theme.themeDark == false || this.theme.themeDark == true) {
+      this.$vuetify.theme.dark = this.theme.themeDark;
     } else {
-      console.log(
-        " ... Theme.created() this.setTheme(this.$vuetify.theme.dark)"
-      );
       this.setTheme(this.$vuetify.theme.dark);
     }
   },
@@ -44,6 +29,10 @@ export default {
       console.log("\nApp.toggleTheme() ... start");
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       this.setTheme(this.$vuetify.theme.dark);
+      console.log(
+        " ... Theme.toggleTheme() this.theme.themeDark = " +
+          this.theme.themeDark
+      );
     },
     ...mapActions("theme", ["setTheme"])
   },

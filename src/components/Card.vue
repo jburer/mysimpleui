@@ -8,7 +8,7 @@
           :to="{ name: 'show', params: { id: shindig.id } }"
         >
           <v-card-text>
-            <p class="display-1 text--primary">
+            <p class="display-1 text--primary text-no-wrap">
               {{ shindig.title }}
             </p>
             <div class="text--primary">
@@ -28,6 +28,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  created() {
+    console.log("\nCard.created() ... start");
   }
 };
 </script>

@@ -9,6 +9,9 @@ export default {
       type: String,
       required: true
     }
+  },
+  created() {
+    console.log("\nTitle.created() ... start");
   }
 };
 </script>

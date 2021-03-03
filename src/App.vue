@@ -49,6 +49,9 @@ export default {
   components: {
     NavBar,
     Theme
+  },
+  created() {
+    console.log("\nApp.created() ... start");
   }
 };
 </script>

@@ -1,6 +1,14 @@
 export const namespaced = true;
 
 export const state = {
+  /*
+  themeDark: {
+    type: Boolean,
+    required: true
+  }
+  /*
+  themeDark: false
+  */
   themeDark: Boolean
 };
 

@@ -34,8 +34,8 @@ export default {
     }
   },
   data: () => ({
-    drawer: false,
-    group: null,
+    //drawer: false,
+    //group: null,
     links: [
       /*
       {
@@ -64,6 +64,9 @@ export default {
         icon: "mdi-information-outline"
       }
     ]
-  })
+  }),
+  created() {
+    console.log("\nNavBar.created() ... start");
+  }
 };
 </script>
