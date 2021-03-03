@@ -13,9 +13,9 @@
       </p>
       <p>
         Designed to give me a "clean" system for demonstrating Security and
-        Privacy, the only principles applied to the base is that which is
-        inherent in the frameworks, software, and services that I'm using to
-        build the system.
+        Privacy principals, the only principals applied to the base is that
+        which is inherent in the frameworks, software, and services that I'm
+        using to build the system.
       </p>
       <p>
         As I work through the fundementals of Security and Privacy, I'll apply
