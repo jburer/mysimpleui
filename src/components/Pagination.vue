@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+        <v-col class="pt-4 mt-1">
           <v-btn
             v-if="page != 1"
             class="mx-2"

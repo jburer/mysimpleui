@@ -30,6 +30,8 @@ export const mutations = {
 
 export const actions = {
   createShindig({ commit }, shindig) {
+    console.log("\nshindigs.createShindigsTotal() ... start");
+
     return Service.postShindig(shindig)
       .then(() => {
         commit("ADD_SHINDIG", shindig);
@@ -43,6 +45,7 @@ export const actions = {
   },
   getShindigsTotal({ commit }) {
     console.log("\nshindigs.getShindigsTotal() ... start");
+
     Service.getShindigsTotal()
       .then(response => {
         console.log(response.data);
@@ -53,6 +56,8 @@ export const actions = {
       });
   },
   getShindigs({ commit }, { perPage, page }) {
+    console.log("\nshindigs.getShindigs() ... start");
+
     Service.getShindigs(perPage, page)
       .then(response => {
         commit("SET_SHINDIGS", response.data);
@@ -62,6 +67,8 @@ export const actions = {
       });
   },
   getShindig({ commit, getters }, id) {
+    console.log("\nshindigs.getShindig() ... start");
+
     var shindig = getters.getShindigById(id);
 
     if (shindig) {
@@ -77,6 +84,8 @@ export const actions = {
     }
   },
   updateShindig({ commit }, shindig) {
+    console.log("\nshindigs.updateShindig() ... start");
+
     return Service.putShindig(shindig)
       .then(() => {
         commit("SET_SHINDIG", shindig);
@@ -89,7 +98,11 @@ export const actions = {
       });
   },
   deleteShindig({ commit }, shindigToDelete) {
-    console.log("shindigToDelete = " + shindigToDelete);
+    console.log("\nshindigs.deleteShindig() ... start");
+
+    console.log(
+      " ... shindigs.deleteShindig() shindigToDelete = " + shindigToDelete
+    );
     return Service.deleteShindig(shindigToDelete)
       .then(() => {
         commit("DELETE_SHINDIG", shindigToDelete);

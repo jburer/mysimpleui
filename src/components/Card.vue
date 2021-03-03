@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+      <v-col cols="12" sm="6" md="6" class="pt-6 ml-4 mt-3">
         <v-card
           class="pa-2"
           hover

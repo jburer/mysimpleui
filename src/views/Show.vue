@@ -4,35 +4,35 @@
     <v-container>
       <v-row>
         <v-col class="pa-3" d-flex>
-          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+          <v-col cols="12" sm="6" md="6" class="pt-7 mt-4">
             <v-icon class="mr-3">mdi-subtitles-outline</v-icon>
             <span class="grey--text grey--darken-4 font-weight-medium"
               >Title:</span
             >
             {{ shindig.title }}
           </v-col>
-          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+          <v-col cols="12" sm="6" md="6" class="pt-7 mt-4">
             <v-icon class="mr-3">mdi-image-text</v-icon>
             <span class="grey--text grey--darken-4 font-weight-medium"
               >Description</span
             >
             {{ shindig.description }}
           </v-col>
-          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+          <v-col cols="12" sm="6" md="6" class="pt-7 mt-4">
             <v-icon class="mr-3">mdi-map</v-icon>
             <span class="grey--text grey--darken-4 font-weight-medium"
               >Location:</span
             >
             {{ shindig.location }}
           </v-col>
-          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+          <v-col cols="12" sm="6" md="6" class="pt-7 mt-4">
             <v-icon class="mr-3">mdi-calendar</v-icon>
             <span class="grey--text grey--darken-4 font-weight-medium"
               >Date:</span
             >
             {{ shindig.date }}
           </v-col>
-          <v-col cols="12" sm="6" md="4" class="pt-6 mt-3">
+          <v-col cols="12" sm="6" md="6" class="pt-7 mt-4">
             <v-row justify="space-around" align="center">
               <v-col class="text-h7"
                 ><v-icon class="mr-3">mdi-clock-time-four-outline</v-icon>
@@ -87,7 +87,7 @@ export default {
   },
   created() {
     console.log("\nShow.created() ... start");
-    console.log(" ... Show.created() this.id = " + this.id);
+
     this.getShindig(this.id);
   },
   computed: mapState({
@@ -95,9 +95,13 @@ export default {
   }),
   methods: {
     deleteShindig() {
-      console.log("this.shindig.id = " + this.shindig._id);
+      console.log("\nShow.deleteShindig() ... start");
+
+      console.log(
+        " ... Show.deleteShindig() this.shindig.id = " + this.shindig.id
+      );
       this.$store
-        .dispatch("shindig/deleteShindig", this.shindig._id)
+        .dispatch("shindig/deleteShindig", this.shindig.id)
         .then(() => {
           this.$router.push({
             name: "read"
@@ -108,7 +112,11 @@ export default {
         });
     },
     updateShindig() {
-      console.log("this.shindig.id = " + this.shindig._id);
+      console.log("\nShow.updateShindig() ... start");
+
+      console.log(
+        "... Show.updateShindig() this.shindig.id = " + this.shindig._id
+      );
       this.$router.push({
         name: "update",
         params: { id: this.shindig.id }
