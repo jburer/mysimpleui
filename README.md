@@ -28,11 +28,17 @@ _specifically designed to omit security and privacy controls (e.g._
 _authentication, input validation, logging, etc. - **all those things security and privacy folks care about**)_
 _so that their benefits can be demonstrated._
 
+## myUI
+
+The `mysimpleui` UI provides the basic functions to create, read, update and delete shindigs.
+
 ## myArchitecture
 
 This is pretty straightforward UI that sits independently from the API and datastore.
 
-It is designed to be run inside a Docker container.
+The `mysimpleui` UI is a Vue app that uses Axios to communicate with the API.
+
+It is designed to be run inside a Docker container, and is exposed on port `:8080`.
 
 ![mySimpleUI](/images/mySimpleUI.gif)
 
@@ -43,7 +49,7 @@ _Because `docker-compose.yml` expects this network, it is necessary to create it
 _Creating the network first allows each image to be created independently, although you will want to start the database first_
 _before running the API as the API immediately looks for the DB._
 
-Create the `mysimplenetwork` network. 
+Create the `mysimplenetwork` network.
 
 <pre>
     docker network create mysimplenetwork
