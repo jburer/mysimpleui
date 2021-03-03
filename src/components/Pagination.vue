@@ -56,11 +56,6 @@ export default {
     page() {
       return parseInt(this.$route.query.page) || 1;
     },
-    /*
-    next() {
-      return "/";
-    },
-    */
     nextPage() {
       return this.page + 1;
     },

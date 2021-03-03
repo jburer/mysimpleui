@@ -55,7 +55,7 @@
       <v-row>
         <v-col class="d-flex">
           <v-form @submit.prevent="updateShindig">
-            <v-btn type="submit" color="secondary" class="mr-4">Update</v-btn>
+            <v-btn type="submit" color="primary" class="mr-4">Update</v-btn>
           </v-form>
           <v-form @submit.prevent="deleteShindig">
             <v-btn type="submit" color="error" class="mr-4">Delete</v-btn>
@@ -115,7 +115,7 @@ export default {
       console.log("\nShow.updateShindig() ... start");
 
       console.log(
-        "... Show.updateShindig() this.shindig.id = " + this.shindig._id
+        "... Show.updateShindig() this.shindig.id = " + this.shindig.id
       );
       this.$router.push({
         name: "update",

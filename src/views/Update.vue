@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>Update</h1>
-    <Form :shindig="shindig" :formname="formname" :buttonname="buttonname" />
+    <Form
+      :shindig="shindig"
+      :formname="formname"
+      :submitbuttonname="submitbuttonname"
+      :cancelbuttonname="cancelbuttonname"
+    />
   </div>
 </template>
 
@@ -10,11 +15,16 @@ import { mapActions, mapState } from "vuex";
 import Form from "@/components/Form.vue";
 
 export default {
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   created() {
-    console.log("id = " + this.id);
+    console.log("\nUpdate.created() ... start");
+
     this.getShindig(this.id);
-    console.log("this.getShindig(this.id) = " + this.getShindig(this.id));
   },
   components: {
     Form
@@ -22,7 +32,8 @@ export default {
   data() {
     return {
       formname: "callUpdateShindig",
-      buttonname: "Update"
+      submitbuttonname: "Update",
+      cancelbuttonname: "Cancel"
     };
   },
   computed: mapState({
@@ -30,10 +41,8 @@ export default {
   }),
   methods: {
     updateShindig() {
-      console.log("this.shindig = " + this.shindig);
-      console.log("this.shindig.title = " + this.shindig.title);
-      console.log("this.shindig.description = " + this.shindig.description);
-      console.log("STOP");
+      console.log("\nUpdate.updateShindig ... start");
+
       this.$store
         .dispatch("shindig/updateShindig", this.shindig)
         .then(() => {
@@ -50,9 +59,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.field {
-  margin-bottom: 24px;
-}
-</style>

@@ -118,8 +118,10 @@
             </v-row>
           </v-col>
           <!--Time Picker END-->
-          <v-btn type="submit" color="primary" class="mr-4">Submit</v-btn>
-          <v-btn color="error" @click="resetForm">Reset</v-btn>
+          <v-btn type="submit" color="primary" class="mr-4">{{
+            submitbuttonname
+          }}</v-btn>
+          <v-btn color="error" @click="resetForm">{{ cancelbuttonname }}</v-btn>
         </v-form>
       </v-col>
     </v-row>
@@ -136,17 +138,20 @@ export default {
     formname: {
       type: String,
       required: true
+    },
+    submitbuttonname: {
+      type: String,
+      required: false,
+      default: "Submit"
+    },
+    cancelbuttonname: {
+      type: String,
+      required: false,
+      default: "Reset"
     }
-    /*
-    buttonname: {
-      type: String
-    }
-    */
   },
-  components: {},
   data() {
     return {
-      categories: this.$store.state.categories,
       time: null,
       datemenu: false,
       date: new Date().toISOString().substr(0, 10),
@@ -154,6 +159,9 @@ export default {
       starttimemenu: false,
       endtimemenu: false
     };
+  },
+  created() {
+    console.log("\nForm.created() ... start");
   },
   methods: {
     submitForm() {
@@ -164,16 +172,12 @@ export default {
       }
     },
     resetForm() {
-      this.$refs.shindigForm.reset();
+      if (this.formname === "callCreateShindig") {
+        this.$refs.shindigForm.reset();
+      } else {
+        this.$router.push({ name: "read" });
+      }
     }
   }
 };
 </script>
-
-<style scoped>
-/*
-.field {
-  margin-bottom: 24px;
-}
-*/
-</style>
