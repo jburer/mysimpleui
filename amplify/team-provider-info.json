@@ -10,6 +10,11 @@
       "StackName": "amplify-mysimpleui-dev-170512",
       "StackId": "arn:aws:cloudformation:us-east-1:562241862267:stack/amplify-mysimpleui-dev-170512/201e07d0-8f40-11eb-bc40-0e89978ed963",
       "AmplifyAppId": "d3n7bajrqvvupv"
+    },
+    "categories": {
+      "auth": {
+        "mysimpleuif83faac5": {}
+      }
     }
   }
 }

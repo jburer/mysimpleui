@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "mysimpleuif83faac5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
