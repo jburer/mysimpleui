@@ -11,12 +11,13 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 import Title from "@/components/Title.vue";
 import Card from "@/components/Card.vue";
 import Pagination from "@/components/Pagination.vue";
 
 export default {
+  props: ["signout"],
   components: {
     Title,
     Card,
@@ -33,9 +34,17 @@ export default {
     if (isNaN(this.shindig.shindigsTotal)) {
       this.$store.dispatch("shindig/getShindigsTotal");
     }
+
+    if (this.signout) {
+      console.log(this.user.user);
+      this.disableUser(this.user);
+    }
   },
   computed: {
-    ...mapState(["shindig"])
+    ...mapState(["shindig", "user"])
+  },
+  methods: {
+    ...mapActions("user", ["disableUser"])
   }
 };
 </script>

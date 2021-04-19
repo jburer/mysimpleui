@@ -11,6 +11,7 @@ import {
   applyPolyfills,
   defineCustomElements
 } from "@aws-amplify/ui-components/loader";
+import "@aws-amplify/ui-vue";
 
 Amplify.configure(aws_exports);
 applyPolyfills().then(() => {

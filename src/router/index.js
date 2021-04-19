@@ -6,26 +6,27 @@ import Create from "@/views/Create.vue";
 import Read from "@/views/Read.vue";
 import Update from "@/views/Update.vue";
 import Show from "@/views/Show.vue";
+import Account from "@/views/Account.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
-  /*
   {
     path: "/",
     name: "home",
-    component: Read
-  },
-  */
-  {
-    path: "/",
-    name: "home",
-    component: Read
+    component: Read,
+    props: route => ({ signout: route.query.signout })
   },
   {
     path: "/about",
     name: "about",
     component: About
+  },
+  {
+    path: "/account",
+    name: "account",
+    component: Account,
+    props: true
   },
   {
     path: "/shindig/create",
