@@ -15,7 +15,6 @@ export default {
 
     page = page - 1;
     let url = "/shindigs?_limit=" + perPage + "&_page=" + page;
-    console.log(" ... Service.getShindigs() url = " + url);
     return apiClient.get(url);
   },
   getShindigsTotal() {
