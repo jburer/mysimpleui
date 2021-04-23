@@ -49,6 +49,7 @@
 <script>
 import { Auth } from "aws-amplify";
 import Sheet from "@/components/Sheet.vue";
+import mongoose from "mongoose";
 
 export default {
   name: "Authentication",
@@ -79,13 +80,7 @@ export default {
 
       this.signIn(this.email, this.password);
 
-      Auth.currentUserInfo()
-        .then(data => console.log("DATA:  " + data))
-        .catch(err => console.log("ERROR: " + err));
-
-      Auth.currentAuthenticatedUser()
-        .then(data => console.log("DATA:  " + data))
-        .catch(err => console.log("ERROR: " + err));
+      this.registerWithDB();
 
       console.log("\nAuthentication.accountAuthentication() ... end");
     },
@@ -117,6 +112,69 @@ export default {
       }
 
       console.log("\nAuthentication.signIn() ... end");
+    },
+    async registerWithDB() {
+      console.log("\nAuthentication.registerWithDB() ... start");
+
+      const currentUserInfo = await Auth.currentUserInfo();
+
+      console.log(currentUserInfo);
+
+      if (currentUserInfo.attributes.email_verified) {
+        // Connect to Accounts DB
+        //Import the mongoose module
+        
+
+        //Set up default mongoose connection
+        var mongoDB = "mongodb://127.0.0.1/my_database";
+        mongoose.connect(mongoDB, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true
+        });
+
+        //Get the default connection
+        var db = mongoose.connection;
+
+        //Bind connection to error event (to get notification of connection errors)
+        db.on(
+          "error",
+          console.error.bind(console, "MongoDB connection error:")
+        );
+
+        // Check if account exists already
+
+        // Create account in DB for DB Identification and Authentication
+        /*
+        msg
+          .save()
+          .then(doc => {
+            console.log(doc);
+          })
+          .catch(err => {
+            console.error("Hit an error:\n" + err);
+          });
+        */
+
+        /*
+        let Account = require("../..//model/Accounts");
+
+        let msg = new Account({
+          email: this.email,
+          password: this.password
+        });
+
+        msg
+          .save()
+          .then(doc => {
+            console.log(doc);
+          })
+          .catch(err => {
+            console.error("Hit an error:\n" + err);
+          });
+        */
+      }
+
+      console.log("\nAuthentication.registerWithDB() ... end");
     },
     setCurrentUser(user) {
       console.log("\nAuthentication.setCurrentUser() ... start");
