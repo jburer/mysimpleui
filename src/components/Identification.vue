@@ -111,6 +111,8 @@ export default {
           }
         });
         console.log(user);
+
+        // Notify User and redirect
         this.sheet.color = "primary";
         this.sheet.text =
           "Account Creation Successful!  Please check your email to verify your account before loggingin in.";
