@@ -49,7 +49,6 @@
 <script>
 import { Auth } from "aws-amplify";
 import Sheet from "@/components/Sheet.vue";
-import mongoose from "mongoose";
 
 export default {
   name: "Authentication",
@@ -80,7 +79,7 @@ export default {
 
       this.signIn(this.email, this.password);
 
-      this.registerWithDB();
+      //this.registerWithDB();
 
       console.log("\nAuthentication.accountAuthentication() ... end");
     },
@@ -123,9 +122,8 @@ export default {
       if (currentUserInfo.attributes.email_verified) {
         // Connect to Accounts DB
         //Import the mongoose module
-        
-
         //Set up default mongoose connection
+        /*
         var mongoDB = "mongodb://127.0.0.1/my_database";
         mongoose.connect(mongoDB, {
           useNewUrlParser: true,
@@ -154,7 +152,6 @@ export default {
             console.error("Hit an error:\n" + err);
           });
         */
-
         /*
         let Account = require("../..//model/Accounts");
 
