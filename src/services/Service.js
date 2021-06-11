@@ -1,11 +1,13 @@
 import axios from "axios";
 
 const apiClient = axios.create({
+  //baseURL: "https://36p6foyeo9.execute-api.us-east-1.amazonaws.com/TEST",
   baseURL: "http://localhost:3100",
   withCredentials: false,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json"
+    //  "X-Api-Key": "5UzCpLXuFi9QP5gM8OxDj2l5TZIazcyn39Tl9eHL"
   }
 });
 
@@ -15,6 +17,7 @@ export default {
 
     page = page - 1;
     let url = "/shindigs?_limit=" + perPage + "&_page=" + page;
+    console.log(" ... Service.getShindigs() url = " + url);
     return apiClient.get(url);
   },
   getShindigsTotal() {
@@ -37,7 +40,7 @@ export default {
   putShindig(shindig) {
     console.log("\nService.putShindig() ... start");
 
-    let url = "/shindigs/" + shindig.id + "&" + JSON.stringify(shindig);
+    let url = "/shindigs/" + JSON.stringify(shindig);
     console.log(" ... Service.putShindig() url = " + url);
     return apiClient.put(url);
   },
