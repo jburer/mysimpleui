@@ -49,7 +49,6 @@
 <script>
 import { Auth } from "aws-amplify";
 import Sheet from "@/components/Sheet.vue";
-import mongoose from "mongoose";
 
 export default {
   name: "Authentication",
